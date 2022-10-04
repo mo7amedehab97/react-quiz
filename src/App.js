@@ -7,8 +7,8 @@ function App() {
   return (
     <div className="App">
     <AddUser /> 
-    <ListOfUsers /> 
-  <EditUsersInfo /> 
+    {/* <ListOfUsers /> 
+  <EditUsersInfo />  */}
     </div>
   );
 }

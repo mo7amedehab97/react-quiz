@@ -1,0 +1,39 @@
+.custom-input {
+  border: 1.5px solid #7a7a7a9d;
+  width: 25rem;
+  border-radius: 2px;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  color: #606060;
+}
+.custom-input:focus {
+  outline: none;
+  border: 1px solid #606060;
+}
+.button-custom-input {
+  width: 16rem;
+  border-radius: 2px;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all ease-in-out 0.5s;
+  -webkit-transition: all ease-in-out 0.5s;
+  -moz-transition: all ease-in-out 0.5s;
+  -ms-transition: all ease-in-out 0.5s;
+  -o-transition: all ease-in-out 0.5s;
+}
+
+::placeholder {
+  color: #7a7a7a9d;
+  font-size: 1.2rem;
+}
+
+.button-custom-input:hover {
+  filter: brightness(60%);
+  -webkit-filter: brightness(60%);
+}

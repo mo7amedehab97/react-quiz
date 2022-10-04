@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  max-height: fit-content;
+}
+.select-image-holder {
+  width: calc(30% - 4rem);
+  margin-left: 5%;
+  margin: 1.5rem 2rem;
+  max-height: 24.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+.add-user-inputs {
+  width: 65%;
+  margin: 1.5rem 2rem;
+}
+.inputs-holder {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+.radio-inputs {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  justify-content: center;
+  width: 25rem;
+  max-height: 2.5rem;
+}
+.radio-inputs div > * {
+  padding: 0 0.5rem;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #7a7a7a9d;
+}
+.buttons-holder {
+  display: flex;
+
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.hr {
+  width: 90vw;
+  color: #7a7a7a9d;
+  margin-right: 2rem;
+  margin-top: 4rem;
+}

@@ -1,0 +1,8 @@
+.main-title{
+    color: #a7a7a7;
+    text-transform: capitalize;
+    border-bottom: 1.2px solid #a7a7a798;
+    padding-bottom: .5rem;
+    font-weight: 300;
+    margin-top: 1.5rem;
+}
