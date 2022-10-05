@@ -14,18 +14,16 @@ const UserRow = ({
   userId,
 }) => {
   const navigate = useNavigate();
-  const { users, setUsers, setId } = useContext(Context);
+  const { users, setUsers, setID } = useContext(Context);
   const deleteUser = (id) => {
     console.log(id);
     setUsers(users.filter((user) => user.id !== id));
     axios.delete(`https://test.helpmytoken.com/api/users/${id}`).then((res) => {
-      console.log(res);
-      console.log(res.data);
     });
   };
 
   const editUser = (id) => {
-    setId(id);
+    setID(id);
     navigate("/edit");
   };
 
