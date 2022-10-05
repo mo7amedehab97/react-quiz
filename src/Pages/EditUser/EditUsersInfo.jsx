@@ -66,15 +66,15 @@ const EditUsersInfo = () => {
   };
   const handleEdit = (id) => {
     if (validateInputs()) {
-      axios
-        .put(`https://test.helpmytoken.com/api/users/${id}`, {
-          ...user,
-        })
-        .then((res) => {
-          if (res.status === 200) {
-            navigate("/list");
-          }
-        });
+      axios({
+        url: "https://test.helpmytoken.com/api/users",
+        method: "PUT",
+        data: user,
+      }).then((res) => {
+        if (res.status === 200) {
+          navigate("/list");
+        }
+      });
     }
   };
 
