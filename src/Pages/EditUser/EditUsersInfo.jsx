@@ -75,7 +75,7 @@ const EditUsersInfo = () => {
           role: user.role,
         })
         .then((res) => {
-          if (res.status === 2000) {
+          if (res.status === 200) {
             navigate("/list");
           }
         });
@@ -162,7 +162,6 @@ const EditUsersInfo = () => {
                 color: "white",
               }}
               onClick={() => {
-                console.log(iD);
                 handleEdit(iD);
               }}
             />
