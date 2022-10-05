@@ -16,7 +16,6 @@ const UserRow = ({
   const navigate = useNavigate();
   const { users, setUsers, setID,setUser } = useContext(Context);
   const deleteUser = (id) => {
-    console.log(id);
     setUsers(users.filter((user) => user.id !== id));
     axios
       .delete(`https://test.helpmytoken.com/api/users/${id}`)

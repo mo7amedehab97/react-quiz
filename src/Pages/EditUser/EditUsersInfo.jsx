@@ -8,10 +8,12 @@ import { useNavigate } from "react-router-dom";
 import "../AddUser/index.css";
 import { Context } from "../../Context/Context.jsx";
 import axios from "axios";
+import ErrorAlert from "../../Components/ErrorAlert/ErrorAlert.jsx";
 
 const EditUsersInfo = () => {
   const navigate = useNavigate();
-  const { user, setUser, iD, setError, setErrorMsg } = useContext(Context);
+  const { user, setUser, iD, setError, setErrorMsg, error, errorMsg } =
+    useContext(Context);
 
   const handleRadioChange = (e) => {
     const { value } = e.target;
@@ -176,6 +178,7 @@ const EditUsersInfo = () => {
           <SelectImage />
         </article>
       </div>
+      <ErrorAlert error={error} setError={setError} errorMsg={errorMsg} />
     </div>
   );
 };

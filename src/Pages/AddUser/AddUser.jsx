@@ -165,7 +165,6 @@ const AddUser = () => {
                 color: "white",
               }}
               onClick={(e) => {
-                console.log(user);
                 handlePost(e);
               }}
             />
