@@ -14,16 +14,20 @@ const UserRow = ({
   userId,
 }) => {
   const navigate = useNavigate();
-  const { users, setUsers, setID } = useContext(Context);
+  const { users, setUsers, setID,setUser } = useContext(Context);
   const deleteUser = (id) => {
     console.log(id);
     setUsers(users.filter((user) => user.id !== id));
-    axios.delete(`https://test.helpmytoken.com/api/users/${id}`).then((res) => {
-    });
+    axios
+      .delete(`https://test.helpmytoken.com/api/users/${id}`)
+      .then((res) => {});
   };
 
   const editUser = (id) => {
     setID(id);
+    axios
+      .get(`https://test.helpmytoken.com/api/users/${id}`)
+      .then((res) => setUser(res.data.payload));
     navigate("/edit");
   };
 
@@ -44,9 +48,13 @@ const UserRow = ({
           />
         </span>
         <span>
-          <FontAwesomeIcon icon={faEdit} color="#606060" onClick={()=>{
-            editUser(userId)
-          }}/>
+          <FontAwesomeIcon
+            icon={faEdit}
+            color="#606060"
+            onClick={() => {
+              editUser(userId);
+            }}
+          />
         </span>
       </p>
     </div>
