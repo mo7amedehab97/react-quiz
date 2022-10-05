@@ -11,13 +11,7 @@ import axios from "axios";
 
 const EditUsersInfo = () => {
   const navigate = useNavigate();
-  const {
-    user,
-    setUser,
-    iD,
-    setError,
-    setErrorMsg,
-  } = useContext(Context);
+  const { user, setUser, iD, setError, setErrorMsg } = useContext(Context);
 
   const handleRadioChange = (e) => {
     const { value } = e.target;
@@ -74,8 +68,10 @@ const EditUsersInfo = () => {
         .put(`https://test.helpmytoken.com/api/users${iD}`, {
           data: user,
         })
-        .then((response) => {
-          this.setState({ status: response.status });
+        .then((res) => {
+          if (res.status === 2000) {
+            navigate("/list");
+          }
         });
     }
   };
@@ -92,7 +88,7 @@ const EditUsersInfo = () => {
               <Input
                 type="text"
                 placeholder="Username"
-                value={user.username}
+                defaultValue={user.username}
                 onBlur={(e) => {
                   setUser({ ...user, username: e.target.value });
                 }}
@@ -100,7 +96,7 @@ const EditUsersInfo = () => {
               <Input
                 type="password"
                 placeholder="Password"
-                value={user.password}
+                defaultValue={user.password}
                 onBlur={(e) => setUser({ ...user, password: e.target.value })}
               />
             </div>
@@ -108,13 +104,13 @@ const EditUsersInfo = () => {
               <Input
                 type="text"
                 placeholder="First Name"
-                value={user.first_name}
+                defaultValue={user.first_name}
                 onBlur={(e) => setUser({ ...user, first_name: e.target.value })}
               />
               <Input
                 type="text"
                 placeholder="Last Name"
-                value={user.last_name}
+                defaultValue={user.last_name}
                 onBlur={(e) => setUser({ ...user, last_name: e.target.value })}
               />
             </div>
@@ -122,7 +118,7 @@ const EditUsersInfo = () => {
               <Input
                 type="email"
                 placeholder="Email"
-                value={user.email}
+                defaultValue={user.email}
                 onBlur={(e) => setUser({ ...user, email: e.target.value })}
               />
               <div className="radio-inputs">

@@ -23,7 +23,8 @@ const AddUser = () => {
     setErrorMsg,
     setImageSrc,
     imageSrc,
-    setID,  } = useContext(Context);
+    setID,
+  } = useContext(Context);
 
   const handleRadioChange = (e) => {
     const { value } = e.target;
@@ -80,8 +81,8 @@ const AddUser = () => {
         data: user,
       }).then((res) => {
         if (res.status === 200) {
-          setID(res.data.payload)
-            navigate("/edit");
+          setID(res.data.payload);
+          navigate("/edit");
         }
       });
     }
@@ -99,6 +100,9 @@ const AddUser = () => {
                 type="text"
                 placeholder="Username"
                 onChange={(e) => {
+                  return e.target.value;
+                }}
+                onBlur={(e) => {
                   setUser({ ...user, username: e.target.value });
                 }}
               />
