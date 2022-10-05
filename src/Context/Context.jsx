@@ -14,7 +14,8 @@ function ContextProvider({ children }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [imageSrc, setImageSrc] = useState("");
   const [users, setUsers] = useState();
-  const [id, setId] = useState();
+  const [iD, setID] = useState();
+  const [editableData, setEditableData] = useState();
 
   return (
     <Context.Provider
@@ -29,8 +30,10 @@ function ContextProvider({ children }) {
         setImageSrc,
         users,
         setUsers,
-        id,
-        setId,
+        iD,
+        setID,
+        editableData,
+        setEditableData,
       }}
     >
       {children}

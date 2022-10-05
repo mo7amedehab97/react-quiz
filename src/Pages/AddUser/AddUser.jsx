@@ -23,7 +23,7 @@ const AddUser = () => {
     setErrorMsg,
     setImageSrc,
     imageSrc,
-  } = useContext(Context);
+    setID,  } = useContext(Context);
 
   const handleRadioChange = (e) => {
     const { value } = e.target;
@@ -80,9 +80,8 @@ const AddUser = () => {
         data: user,
       }).then((res) => {
         if (res.status === 200) {
-          console.log("i get it finally", user);
-          navigate("/edit");
-          console.log(res);
+          setID(res.data.payload)
+            navigate("/edit");
         }
       });
     }
