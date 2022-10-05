@@ -15,8 +15,6 @@ const EditUsersInfo = () => {
     user,
     setUser,
     iD,
-    setEditableData,
-    editableData,
     setError,
     setErrorMsg,
   } = useContext(Context);
@@ -31,10 +29,10 @@ const EditUsersInfo = () => {
       const { data } = await axios.get(
         `https://test.helpmytoken.com/api/users${iD}`
       );
-      setEditableData(data.payload);
+      setUser(data.payload);
     };
     getUsers();
-  }, [setEditableData, iD]);
+  }, [setUser, iD]);
   const regexUserName = /^[a-zA-Z]+$/;
   const regexRole = /^[a-zA-Z]+$/;
   const regexFirstName = /^[a-zA-Z]+$/;
@@ -94,7 +92,7 @@ const EditUsersInfo = () => {
               <Input
                 type="text"
                 placeholder="Username"
-                value={editableData.username}
+                value={user.username}
                 onBlur={(e) => {
                   setUser({ ...user, username: e.target.value });
                 }}
@@ -102,7 +100,7 @@ const EditUsersInfo = () => {
               <Input
                 type="password"
                 placeholder="Password"
-                value={editableData.password}
+                value={user.password}
                 onBlur={(e) => setUser({ ...user, password: e.target.value })}
               />
             </div>
@@ -110,13 +108,13 @@ const EditUsersInfo = () => {
               <Input
                 type="text"
                 placeholder="First Name"
-                value={editableData.first_name}
+                value={user.first_name}
                 onBlur={(e) => setUser({ ...user, first_name: e.target.value })}
               />
               <Input
                 type="text"
                 placeholder="Last Name"
-                value={editableData.last_name}
+                value={user.last_name}
                 onBlur={(e) => setUser({ ...user, last_name: e.target.value })}
               />
             </div>
@@ -124,7 +122,7 @@ const EditUsersInfo = () => {
               <Input
                 type="email"
                 placeholder="Email"
-                value={editableData.email}
+                value={user.email}
                 onBlur={(e) => setUser({ ...user, email: e.target.value })}
               />
               <div className="radio-inputs">
