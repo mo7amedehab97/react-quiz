@@ -62,19 +62,24 @@ const EditUsersInfo = () => {
     }
     return true;
   };
-  const handleEdit = () => {
-    if (validateInputs()) {
-      axios
-        .put(`https://test.helpmytoken.com/api/users${iD}`, {
-          data: user,
-        })
-        .then((res) => {
-          if (res.status === 2000) {
-            navigate("/list");
-          }
-        });
-    }
-  };
+
+  useEffect(() => {
+    const handleEdit = (id) => {
+      if (validateInputs()) {
+        axios
+          .put(`https://test.helpmytoken.com/api/users${id}`, {
+            data: user,
+          })
+          .then((res) => {
+            if (res.status === 2000) {
+              navigate("/list");
+            }
+          });
+      }
+    };
+
+    handleEdit();
+  }, [user, navigate,validateInputs]);
 
   return (
     <div>
@@ -155,8 +160,8 @@ const EditUsersInfo = () => {
                 border: "none",
                 color: "white",
               }}
-              onClick={(e) => {
-                handleEdit();
+              onClick={() => {
+                handleEdit(iD);
               }}
             />
             <Input
