@@ -68,11 +68,11 @@ const AddUser = () => {
 
   const handlePost = async (e) => {
     // setUser({ ...user, avatar: imageSrc });
-    let formdata = new FormData();
+    // let formdata = new FormData();
 
-    for (let key in user) {
-      formdata.append(key, user[key]);
-    }
+    // for (let key in user) {
+    //   formdata.append(key, user[key]);
+    // }
     if (validateInputs()) {
       axios({
         url: "https://test.helpmytoken.com/api/users",
@@ -82,6 +82,7 @@ const AddUser = () => {
         if (res.status === 200) {
           console.log("i get it finally", user);
           navigate("/edit");
+          console.log(res);
         }
       });
     }
