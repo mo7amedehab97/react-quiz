@@ -1,0 +1,27 @@
+.table-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1rem;
+}
+.dark {
+  background-color: #ffffff;
+}
+.light {
+  background-color: #e6e6e6;
+}
+.users-table {
+  border: 1px solid #c5c3c3;
+  margin-top: 2rem;
+}
+.table-row p {
+  text-align: start;
+  width: calc(100% / 5);
+  color: #7e7e7e;
+}
+.table-row :last-child {
+  text-align: end;
+  padding: 0 0.5rem;
+  cursor: pointer;
+}

@@ -2,7 +2,6 @@
   background-color: #ddd;
   width: calc(4rem + 1px);
   min-width: calc(4rem + 1px);
-  height: calc(100vh - 5rem);
   display: flex;
   flex-direction: column;
   padding-top: 0.5rem;

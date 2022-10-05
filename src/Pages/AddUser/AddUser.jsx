@@ -1,35 +1,35 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import AsideBar from "../../Components/AsideBar/AsideBar.jsx";
 import ErrorAlert from "../../Components/ErrorAlert/ErrorAlert.jsx";
 import Header from "../../Components/Header/Header.jsx";
 import Input from "../../Components/Input/Input.jsx";
 import MainTitle from "../../Components/MainTitle/MainTitle.jsx";
 import SelectImage from "../../Components/SelectImage/SelectImage.jsx";
+import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 
+import { Context } from "../../Context/Context.jsx";
 import "./index.css";
 const AddUser = () => {
-  let [user, setUser] = useState({
-    username: "",
-    first_name: "",
-    last_name: "",
-    email: "",
-    password: "",
-    avatar: "",
-    role: "",
-  });
-  const [error, setError] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
-  const [imageSrc, setImageSrc] = useState("");
+  const navigate = useNavigate();
+
+  const {
+    user,
+    setUser,
+    setError,
+    error,
+    errorMsg,
+    setErrorMsg,
+    setImageSrc,
+    imageSrc,
+  } = useContext(Context);
+
   const handleRadioChange = (e) => {
     const { value } = e.target;
     setUser({ ...user, role: value });
   };
-  function getFormData(object) {
-    const formData = new FormData();
-    Object.keys(object).forEach((key) => formData.append(key, object[key]));
-    return formData;
-  }
+
   const regexUserName = /^[a-zA-Z]+$/;
   const regexRole = /^[a-zA-Z]+$/;
   const regexFirstName = /^[a-zA-Z]+$/;
@@ -67,7 +67,7 @@ const AddUser = () => {
   };
 
   const handlePost = async (e) => {
-    setUser({ ...user, avatar: imageSrc });
+    // setUser({ ...user, avatar: imageSrc });
     let formdata = new FormData();
 
     for (let key in user) {
@@ -77,8 +77,13 @@ const AddUser = () => {
       axios({
         url: "https://test.helpmytoken.com/api/users",
         method: "POST",
-        data: formdata,
-      }).then((res) => console.log(res));
+        data: user,
+      }).then((res) => {
+        if (res.status === 200) {
+          console.log("i get it finally", user);
+          navigate("/edit");
+        }
+      });
     }
   };
   return (
