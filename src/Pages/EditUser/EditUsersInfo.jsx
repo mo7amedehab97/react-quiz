@@ -66,7 +66,7 @@ const EditUsersInfo = () => {
     if (validateInputs()) {
       axios
         .put(`https://test.helpmytoken.com/api/users${id}`, {
-          data: user,
+          user,
         })
         .then((res) => {
           if (res.status === 2000) {
