@@ -98,7 +98,7 @@ const AddUser = () => {
               <Input
                 type="text"
                 placeholder="Username"
-                onBlur={(e) => {
+                onChange={(e) => {
                   setUser({ ...user, username: e.target.value });
                 }}
               />
