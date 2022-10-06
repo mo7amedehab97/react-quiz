@@ -67,7 +67,7 @@ const EditUsersInfo = () => {
   const handleEdit = (id) => {
     if (validateInputs()) {
       axios({
-        url: `https://test.helpmytoken.com/api/users/${iD}`,
+        url: `https://test.helpmytoken.com/api/users/${id}`,
 
         method: "POST",
         data: user,
