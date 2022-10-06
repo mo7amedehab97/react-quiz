@@ -14,7 +14,7 @@ const UserRow = ({
   userId,
 }) => {
   const navigate = useNavigate();
-  const { users, setUsers, setID,setUser } = useContext(Context);
+  const { users, setUsers, setID, setUser } = useContext(Context);
   const deleteUser = (id) => {
     setUsers(users.filter((user) => user.id !== id));
     axios

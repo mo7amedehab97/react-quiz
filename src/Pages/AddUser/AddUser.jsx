@@ -176,6 +176,9 @@ const AddUser = () => {
                 border: "none",
                 color: "#606060",
               }}
+              onClick={() => {
+                navigate("/list");
+              }}
             />
           </div>
         </article>
